@@ -91,11 +91,13 @@ export default {
     }
   },
   methods: {
-    sendOnline() {
+    async sendOnline() {
       console.log("TCL: -----------------------------------------");
       console.log("TCL: sendOnline -> sendOnline");
       console.log("TCL: -----------------------------------------");
-      this.$store.dispatch("sendProfile");
+      await this.$store.dispatch("sendProfile");
+      console.log("after await dispatch sendProfile")
+      this.$router.push('/')
     }
   },
   watch: {

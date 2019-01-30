@@ -45,11 +45,11 @@ const actions = {
         state
     }) {
 
-        function prepareForPrisma(dbObj) { // function that removes _id and _revision from objects I want to send to prisma
-            delete dbObj._id
-            delete dbObj._rev
-            return dbObj
-        }
+        // function prepareForPrisma(dbObj) { // function that removes _id and _revision from objects I want to send to prisma
+        //     delete dbObj._id
+        //     delete dbObj._rev
+        //     return dbObj
+        // }
 
         var combo = {
             ...state.personalDetails,
@@ -137,6 +137,8 @@ const actions = {
         });
         const data = await response.data
         console.log('TCL: data', data);
+              console.log("in sendProfile about to return")
+        //return
     },
 
     draftDone({

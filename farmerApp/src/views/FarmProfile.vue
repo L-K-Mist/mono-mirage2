@@ -103,8 +103,9 @@ export default {
         console.log("Geo Location not supported by browser");
       }
     },
-    saveFarmProfile() {
-      this.$store.dispatch("saveFarmProfile", this.farmProfile);
+    async saveFarmProfile() {
+      await this.$store.dispatch("saveFarmProfile", this.farmProfile);
+                  this.$router.push('/')
     }
   },
   components: {

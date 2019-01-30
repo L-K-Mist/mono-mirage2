@@ -139,8 +139,9 @@ export default {
       console.log("TCL: setSelection -> fieldMap", fieldMap);
       this.cropNames = fieldMap;
     },
-    saveCrop() {
-      this.$store.dispatch("saveCrop", this.crop);
+    async saveCrop() {
+      await this.$store.dispatch("saveCrop", this.crop);
+            this.$router.push('/')
     }
   }
 };
