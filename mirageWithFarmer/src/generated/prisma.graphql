@@ -1,5 +1,5 @@
-# source: https://eu1.prisma.sh/public-forkbell-321/mirage-advanced/dev
-# timestamp: Wed Oct 24 2018 18:18:03 GMT+0200 (SAST)
+# source: http://localhost:4466
+# timestamp: Wed Jan 30 2019 15:29:30 GMT+0200 (SAST)
 
 type _Produce {
   name: String!
@@ -202,9 +202,8 @@ input _ProduceTableSubscriptionWhereInput {
   node: _ProduceTableWhereInput
 }
 
-input _ProduceTableUpdateInput {
+input _ProduceTableUpdateManyMutationInput {
   name: String
-  produce: _ProduceUpdateManyWithoutGroupInput
 }
 
 input _ProduceTableUpdateOneRequiredWithoutProduceInput {
@@ -284,31 +283,11 @@ input _ProduceUpdateInput {
   group: _ProduceTableUpdateOneRequiredWithoutProduceInput
 }
 
-input _ProduceUpdateManyWithoutGroupInput {
-  create: [_ProduceCreateWithoutGroupInput!]
-  connect: [_ProduceWhereUniqueInput!]
-  disconnect: [_ProduceWhereUniqueInput!]
-  delete: [_ProduceWhereUniqueInput!]
-  update: [_ProduceUpdateWithWhereUniqueWithoutGroupInput!]
-  upsert: [_ProduceUpsertWithWhereUniqueWithoutGroupInput!]
-}
-
-input _ProduceUpdateWithoutGroupDataInput {
+input _ProduceUpdateManyMutationInput {
   name: String
   type: CropCategory
   spacing: Int
   plantsPerM: Float
-}
-
-input _ProduceUpdateWithWhereUniqueWithoutGroupInput {
-  where: _ProduceWhereUniqueInput!
-  data: _ProduceUpdateWithoutGroupDataInput!
-}
-
-input _ProduceUpsertWithWhereUniqueWithoutGroupInput {
-  where: _ProduceWhereUniqueInput!
-  update: _ProduceUpdateWithoutGroupDataInput!
-  create: _ProduceCreateWithoutGroupInput!
 }
 
 input _ProduceWhereInput {
@@ -542,14 +521,13 @@ input AddressSubscriptionWhereInput {
   node: AddressWhereInput
 }
 
-input AddressUpdateInput {
+input AddressUpdateManyMutationInput {
   line1: String
   line2: String
   line3: String
   area: String
   postalCode: String
   province: String
-  resident: UserUpdateOneRequiredWithoutAddressInput
 }
 
 input AddressUpdateOneWithoutResidentInput {
@@ -959,6 +937,147 @@ type CropPreviousValues {
   description: String!
 }
 
+input CropScalarWhereInput {
+  """Logical AND on all given filters."""
+  AND: [CropScalarWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [CropScalarWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [CropScalarWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  category: CropCategory
+
+  """All values that are not equal to given value."""
+  category_not: CropCategory
+
+  """All values that are contained in given list."""
+  category_in: [CropCategory!]
+
+  """All values that are not contained in given list."""
+  category_not_in: [CropCategory!]
+  name: String
+
+  """All values that are not equal to given value."""
+  name_not: String
+
+  """All values that are contained in given list."""
+  name_in: [String!]
+
+  """All values that are not contained in given list."""
+  name_not_in: [String!]
+
+  """All values less than the given value."""
+  name_lt: String
+
+  """All values less than or equal the given value."""
+  name_lte: String
+
+  """All values greater than the given value."""
+  name_gt: String
+
+  """All values greater than or equal the given value."""
+  name_gte: String
+
+  """All values containing the given string."""
+  name_contains: String
+
+  """All values not containing the given string."""
+  name_not_contains: String
+
+  """All values starting with the given string."""
+  name_starts_with: String
+
+  """All values not starting with the given string."""
+  name_not_starts_with: String
+
+  """All values ending with the given string."""
+  name_ends_with: String
+
+  """All values not ending with the given string."""
+  name_not_ends_with: String
+  description: String
+
+  """All values that are not equal to given value."""
+  description_not: String
+
+  """All values that are contained in given list."""
+  description_in: [String!]
+
+  """All values that are not contained in given list."""
+  description_not_in: [String!]
+
+  """All values less than the given value."""
+  description_lt: String
+
+  """All values less than or equal the given value."""
+  description_lte: String
+
+  """All values greater than the given value."""
+  description_gt: String
+
+  """All values greater than or equal the given value."""
+  description_gte: String
+
+  """All values containing the given string."""
+  description_contains: String
+
+  """All values not containing the given string."""
+  description_not_contains: String
+
+  """All values starting with the given string."""
+  description_starts_with: String
+
+  """All values not starting with the given string."""
+  description_not_starts_with: String
+
+  """All values ending with the given string."""
+  description_ends_with: String
+
+  """All values not ending with the given string."""
+  description_not_ends_with: String
+}
+
 type CropSubscriptionPayload {
   mutation: MutationType!
   node: Crop
@@ -1006,13 +1125,33 @@ input CropUpdateInput {
   farm: FarmUpdateOneRequiredWithoutCropsInput
 }
 
+input CropUpdateManyDataInput {
+  category: CropCategory
+  name: String
+  description: String
+}
+
+input CropUpdateManyMutationInput {
+  category: CropCategory
+  name: String
+  description: String
+}
+
 input CropUpdateManyWithoutFarmInput {
   create: [CropCreateWithoutFarmInput!]
   connect: [CropWhereUniqueInput!]
+  set: [CropWhereUniqueInput!]
   disconnect: [CropWhereUniqueInput!]
   delete: [CropWhereUniqueInput!]
   update: [CropUpdateWithWhereUniqueWithoutFarmInput!]
+  updateMany: [CropUpdateManyWithWhereNestedInput!]
+  deleteMany: [CropScalarWhereInput!]
   upsert: [CropUpsertWithWhereUniqueWithoutFarmInput!]
+}
+
+input CropUpdateManyWithWhereNestedInput {
+  where: CropScalarWhereInput!
+  data: CropUpdateManyDataInput!
 }
 
 input CropUpdateWithoutFarmDataInput {
@@ -1380,12 +1519,10 @@ input FarmingActivitiesSubscriptionWhereInput {
   node: FarmingActivitiesWhereInput
 }
 
-input FarmingActivitiesUpdateInput {
+input FarmingActivitiesUpdateManyMutationInput {
   category: String
   shortDescription: String
   cultivationApproach: String
-  selling: SalesCatogoriesUpdateOneInput
-  farmer: UserUpdateOneRequiredWithoutFarmingActivitiesInput
 }
 
 input FarmingActivitiesUpdateOneWithoutFarmerInput {
@@ -1618,6 +1755,14 @@ input FarmUpdateInput {
   farmer: UserUpdateOneWithoutFarmInput
   crops: CropUpdateManyWithoutFarmInput
   products: ProductUpdateManyWithoutFarmInput
+}
+
+input FarmUpdateManyMutationInput {
+  name: String
+  totalLand: Int
+  cultivatedLand: Int
+  shareLocation: Boolean
+  farmersAssociations: String
 }
 
 input FarmUpdateOneRequiredWithoutCropsInput {
@@ -1977,7 +2122,7 @@ input HarvestWindowUpdateDataInput {
   to: DateTime
 }
 
-input HarvestWindowUpdateInput {
+input HarvestWindowUpdateManyMutationInput {
   from: DateTime
   to: DateTime
 }
@@ -2143,7 +2288,7 @@ input LocationUpdateDataInput {
   lng: Float
 }
 
-input LocationUpdateInput {
+input LocationUpdateManyMutationInput {
   lat: Float
   lng: Float
 }
@@ -2252,19 +2397,19 @@ type Mutation {
   upsertCrop(where: CropWhereUniqueInput!, create: CropCreateInput!, update: CropUpdateInput!): Crop!
   upsert_Produce(where: _ProduceWhereUniqueInput!, create: _ProduceCreateInput!, update: _ProduceUpdateInput!): _Produce!
   upsertProduct(where: ProductWhereUniqueInput!, create: ProductCreateInput!, update: ProductUpdateInput!): Product!
-  updateManyPosts(data: PostUpdateInput!, where: PostWhereInput): BatchPayload!
-  updateManyUsers(data: UserUpdateInput!, where: UserWhereInput): BatchPayload!
-  updateManyPersonalDetailses(data: PersonalDetailsUpdateInput!, where: PersonalDetailsWhereInput): BatchPayload!
-  updateManyAddresses(data: AddressUpdateInput!, where: AddressWhereInput): BatchPayload!
-  updateManyFarmingActivitieses(data: FarmingActivitiesUpdateInput!, where: FarmingActivitiesWhereInput): BatchPayload!
-  updateManyFarms(data: FarmUpdateInput!, where: FarmWhereInput): BatchPayload!
-  updateManyCrops(data: CropUpdateInput!, where: CropWhereInput): BatchPayload!
-  updateMany_ProduceTables(data: _ProduceTableUpdateInput!, where: _ProduceTableWhereInput): BatchPayload!
-  updateMany_Produces(data: _ProduceUpdateInput!, where: _ProduceWhereInput): BatchPayload!
-  updateManyProducts(data: ProductUpdateInput!, where: ProductWhereInput): BatchPayload!
-  updateManyHarvestWindows(data: HarvestWindowUpdateInput!, where: HarvestWindowWhereInput): BatchPayload!
-  updateManySalesCatogorieses(data: SalesCatogoriesUpdateInput!, where: SalesCatogoriesWhereInput): BatchPayload!
-  updateManyLocations(data: LocationUpdateInput!, where: LocationWhereInput): BatchPayload!
+  updateManyPosts(data: PostUpdateManyMutationInput!, where: PostWhereInput): BatchPayload!
+  updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
+  updateManyPersonalDetailses(data: PersonalDetailsUpdateManyMutationInput!, where: PersonalDetailsWhereInput): BatchPayload!
+  updateManyAddresses(data: AddressUpdateManyMutationInput!, where: AddressWhereInput): BatchPayload!
+  updateManyFarmingActivitieses(data: FarmingActivitiesUpdateManyMutationInput!, where: FarmingActivitiesWhereInput): BatchPayload!
+  updateManyFarms(data: FarmUpdateManyMutationInput!, where: FarmWhereInput): BatchPayload!
+  updateManyCrops(data: CropUpdateManyMutationInput!, where: CropWhereInput): BatchPayload!
+  updateMany_ProduceTables(data: _ProduceTableUpdateManyMutationInput!, where: _ProduceTableWhereInput): BatchPayload!
+  updateMany_Produces(data: _ProduceUpdateManyMutationInput!, where: _ProduceWhereInput): BatchPayload!
+  updateManyProducts(data: ProductUpdateManyMutationInput!, where: ProductWhereInput): BatchPayload!
+  updateManyHarvestWindows(data: HarvestWindowUpdateManyMutationInput!, where: HarvestWindowWhereInput): BatchPayload!
+  updateManySalesCatogorieses(data: SalesCatogoriesUpdateManyMutationInput!, where: SalesCatogoriesWhereInput): BatchPayload!
+  updateManyLocations(data: LocationUpdateManyMutationInput!, where: LocationWhereInput): BatchPayload!
   deleteManyPosts(where: PostWhereInput): BatchPayload!
   deleteManyUsers(where: UserWhereInput): BatchPayload!
   deleteManyPersonalDetailses(where: PersonalDetailsWhereInput): BatchPayload!
@@ -2416,12 +2561,11 @@ input PersonalDetailsSubscriptionWhereInput {
   node: PersonalDetailsWhereInput
 }
 
-input PersonalDetailsUpdateInput {
+input PersonalDetailsUpdateManyMutationInput {
   lastName: String
   cell: String
   landLine: String
   idSA: String
-  person: UserUpdateOneRequiredWithoutPersonalDetailsInput
 }
 
 input PersonalDetailsUpdateOneWithoutPersonInput {
@@ -2687,6 +2831,185 @@ type PostPreviousValues {
   text: String!
 }
 
+input PostScalarWhereInput {
+  """Logical AND on all given filters."""
+  AND: [PostScalarWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [PostScalarWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [PostScalarWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  createdAt: DateTime
+
+  """All values that are not equal to given value."""
+  createdAt_not: DateTime
+
+  """All values that are contained in given list."""
+  createdAt_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  createdAt_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  createdAt_lt: DateTime
+
+  """All values less than or equal the given value."""
+  createdAt_lte: DateTime
+
+  """All values greater than the given value."""
+  createdAt_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+
+  """All values that are not equal to given value."""
+  updatedAt_not: DateTime
+
+  """All values that are contained in given list."""
+  updatedAt_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  updatedAt_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  updatedAt_lt: DateTime
+
+  """All values less than or equal the given value."""
+  updatedAt_lte: DateTime
+
+  """All values greater than the given value."""
+  updatedAt_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  updatedAt_gte: DateTime
+  isPublished: Boolean
+
+  """All values that are not equal to given value."""
+  isPublished_not: Boolean
+  title: String
+
+  """All values that are not equal to given value."""
+  title_not: String
+
+  """All values that are contained in given list."""
+  title_in: [String!]
+
+  """All values that are not contained in given list."""
+  title_not_in: [String!]
+
+  """All values less than the given value."""
+  title_lt: String
+
+  """All values less than or equal the given value."""
+  title_lte: String
+
+  """All values greater than the given value."""
+  title_gt: String
+
+  """All values greater than or equal the given value."""
+  title_gte: String
+
+  """All values containing the given string."""
+  title_contains: String
+
+  """All values not containing the given string."""
+  title_not_contains: String
+
+  """All values starting with the given string."""
+  title_starts_with: String
+
+  """All values not starting with the given string."""
+  title_not_starts_with: String
+
+  """All values ending with the given string."""
+  title_ends_with: String
+
+  """All values not ending with the given string."""
+  title_not_ends_with: String
+  text: String
+
+  """All values that are not equal to given value."""
+  text_not: String
+
+  """All values that are contained in given list."""
+  text_in: [String!]
+
+  """All values that are not contained in given list."""
+  text_not_in: [String!]
+
+  """All values less than the given value."""
+  text_lt: String
+
+  """All values less than or equal the given value."""
+  text_lte: String
+
+  """All values greater than the given value."""
+  text_gt: String
+
+  """All values greater than or equal the given value."""
+  text_gte: String
+
+  """All values containing the given string."""
+  text_contains: String
+
+  """All values not containing the given string."""
+  text_not_contains: String
+
+  """All values starting with the given string."""
+  text_starts_with: String
+
+  """All values not starting with the given string."""
+  text_not_starts_with: String
+
+  """All values ending with the given string."""
+  text_ends_with: String
+
+  """All values not ending with the given string."""
+  text_not_ends_with: String
+}
+
 type PostSubscriptionPayload {
   mutation: MutationType!
   node: Post
@@ -2733,13 +3056,33 @@ input PostUpdateInput {
   author: UserUpdateOneRequiredWithoutPostsInput
 }
 
+input PostUpdateManyDataInput {
+  isPublished: Boolean
+  title: String
+  text: String
+}
+
+input PostUpdateManyMutationInput {
+  isPublished: Boolean
+  title: String
+  text: String
+}
+
 input PostUpdateManyWithoutAuthorInput {
   create: [PostCreateWithoutAuthorInput!]
   connect: [PostWhereUniqueInput!]
+  set: [PostWhereUniqueInput!]
   disconnect: [PostWhereUniqueInput!]
   delete: [PostWhereUniqueInput!]
   update: [PostUpdateWithWhereUniqueWithoutAuthorInput!]
+  updateMany: [PostUpdateManyWithWhereNestedInput!]
+  deleteMany: [PostScalarWhereInput!]
   upsert: [PostUpsertWithWhereUniqueWithoutAuthorInput!]
+}
+
+input PostUpdateManyWithWhereNestedInput {
+  where: PostScalarWhereInput!
+  data: PostUpdateManyDataInput!
 }
 
 input PostUpdateWithoutAuthorDataInput {
@@ -3034,6 +3377,301 @@ type ProductPreviousValues {
   imageName: String
 }
 
+input ProductScalarWhereInput {
+  """Logical AND on all given filters."""
+  AND: [ProductScalarWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [ProductScalarWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [ProductScalarWhereInput!]
+  id: ID
+
+  """All values that are not equal to given value."""
+  id_not: ID
+
+  """All values that are contained in given list."""
+  id_in: [ID!]
+
+  """All values that are not contained in given list."""
+  id_not_in: [ID!]
+
+  """All values less than the given value."""
+  id_lt: ID
+
+  """All values less than or equal the given value."""
+  id_lte: ID
+
+  """All values greater than the given value."""
+  id_gt: ID
+
+  """All values greater than or equal the given value."""
+  id_gte: ID
+
+  """All values containing the given string."""
+  id_contains: ID
+
+  """All values not containing the given string."""
+  id_not_contains: ID
+
+  """All values starting with the given string."""
+  id_starts_with: ID
+
+  """All values not starting with the given string."""
+  id_not_starts_with: ID
+
+  """All values ending with the given string."""
+  id_ends_with: ID
+
+  """All values not ending with the given string."""
+  id_not_ends_with: ID
+  name: String
+
+  """All values that are not equal to given value."""
+  name_not: String
+
+  """All values that are contained in given list."""
+  name_in: [String!]
+
+  """All values that are not contained in given list."""
+  name_not_in: [String!]
+
+  """All values less than the given value."""
+  name_lt: String
+
+  """All values less than or equal the given value."""
+  name_lte: String
+
+  """All values greater than the given value."""
+  name_gt: String
+
+  """All values greater than or equal the given value."""
+  name_gte: String
+
+  """All values containing the given string."""
+  name_contains: String
+
+  """All values not containing the given string."""
+  name_not_contains: String
+
+  """All values starting with the given string."""
+  name_starts_with: String
+
+  """All values not starting with the given string."""
+  name_not_starts_with: String
+
+  """All values ending with the given string."""
+  name_ends_with: String
+
+  """All values not ending with the given string."""
+  name_not_ends_with: String
+  description: String
+
+  """All values that are not equal to given value."""
+  description_not: String
+
+  """All values that are contained in given list."""
+  description_in: [String!]
+
+  """All values that are not contained in given list."""
+  description_not_in: [String!]
+
+  """All values less than the given value."""
+  description_lt: String
+
+  """All values less than or equal the given value."""
+  description_lte: String
+
+  """All values greater than the given value."""
+  description_gt: String
+
+  """All values greater than or equal the given value."""
+  description_gte: String
+
+  """All values containing the given string."""
+  description_contains: String
+
+  """All values not containing the given string."""
+  description_not_contains: String
+
+  """All values starting with the given string."""
+  description_starts_with: String
+
+  """All values not starting with the given string."""
+  description_not_starts_with: String
+
+  """All values ending with the given string."""
+  description_ends_with: String
+
+  """All values not ending with the given string."""
+  description_not_ends_with: String
+  unit: String
+
+  """All values that are not equal to given value."""
+  unit_not: String
+
+  """All values that are contained in given list."""
+  unit_in: [String!]
+
+  """All values that are not contained in given list."""
+  unit_not_in: [String!]
+
+  """All values less than the given value."""
+  unit_lt: String
+
+  """All values less than or equal the given value."""
+  unit_lte: String
+
+  """All values greater than the given value."""
+  unit_gt: String
+
+  """All values greater than or equal the given value."""
+  unit_gte: String
+
+  """All values containing the given string."""
+  unit_contains: String
+
+  """All values not containing the given string."""
+  unit_not_contains: String
+
+  """All values starting with the given string."""
+  unit_starts_with: String
+
+  """All values not starting with the given string."""
+  unit_not_starts_with: String
+
+  """All values ending with the given string."""
+  unit_ends_with: String
+
+  """All values not ending with the given string."""
+  unit_not_ends_with: String
+  stockLevel: Float
+
+  """All values that are not equal to given value."""
+  stockLevel_not: Float
+
+  """All values that are contained in given list."""
+  stockLevel_in: [Float!]
+
+  """All values that are not contained in given list."""
+  stockLevel_not_in: [Float!]
+
+  """All values less than the given value."""
+  stockLevel_lt: Float
+
+  """All values less than or equal the given value."""
+  stockLevel_lte: Float
+
+  """All values greater than the given value."""
+  stockLevel_gt: Float
+
+  """All values greater than or equal the given value."""
+  stockLevel_gte: Float
+  price: Float
+
+  """All values that are not equal to given value."""
+  price_not: Float
+
+  """All values that are contained in given list."""
+  price_in: [Float!]
+
+  """All values that are not contained in given list."""
+  price_not_in: [Float!]
+
+  """All values less than the given value."""
+  price_lt: Float
+
+  """All values less than or equal the given value."""
+  price_lte: Float
+
+  """All values greater than the given value."""
+  price_gt: Float
+
+  """All values greater than or equal the given value."""
+  price_gte: Float
+  imageSrc: String
+
+  """All values that are not equal to given value."""
+  imageSrc_not: String
+
+  """All values that are contained in given list."""
+  imageSrc_in: [String!]
+
+  """All values that are not contained in given list."""
+  imageSrc_not_in: [String!]
+
+  """All values less than the given value."""
+  imageSrc_lt: String
+
+  """All values less than or equal the given value."""
+  imageSrc_lte: String
+
+  """All values greater than the given value."""
+  imageSrc_gt: String
+
+  """All values greater than or equal the given value."""
+  imageSrc_gte: String
+
+  """All values containing the given string."""
+  imageSrc_contains: String
+
+  """All values not containing the given string."""
+  imageSrc_not_contains: String
+
+  """All values starting with the given string."""
+  imageSrc_starts_with: String
+
+  """All values not starting with the given string."""
+  imageSrc_not_starts_with: String
+
+  """All values ending with the given string."""
+  imageSrc_ends_with: String
+
+  """All values not ending with the given string."""
+  imageSrc_not_ends_with: String
+  imageName: String
+
+  """All values that are not equal to given value."""
+  imageName_not: String
+
+  """All values that are contained in given list."""
+  imageName_in: [String!]
+
+  """All values that are not contained in given list."""
+  imageName_not_in: [String!]
+
+  """All values less than the given value."""
+  imageName_lt: String
+
+  """All values less than or equal the given value."""
+  imageName_lte: String
+
+  """All values greater than the given value."""
+  imageName_gt: String
+
+  """All values greater than or equal the given value."""
+  imageName_gte: String
+
+  """All values containing the given string."""
+  imageName_contains: String
+
+  """All values not containing the given string."""
+  imageName_not_contains: String
+
+  """All values starting with the given string."""
+  imageName_starts_with: String
+
+  """All values not starting with the given string."""
+  imageName_not_starts_with: String
+
+  """All values ending with the given string."""
+  imageName_ends_with: String
+
+  """All values not ending with the given string."""
+  imageName_not_ends_with: String
+}
+
 type ProductSubscriptionPayload {
   mutation: MutationType!
   node: Product
@@ -3084,13 +3722,41 @@ input ProductUpdateInput {
   farm: FarmUpdateOneRequiredWithoutProductsInput
 }
 
+input ProductUpdateManyDataInput {
+  name: String
+  description: String
+  unit: String
+  stockLevel: Float
+  price: Float
+  imageSrc: String
+  imageName: String
+}
+
+input ProductUpdateManyMutationInput {
+  name: String
+  description: String
+  unit: String
+  stockLevel: Float
+  price: Float
+  imageSrc: String
+  imageName: String
+}
+
 input ProductUpdateManyWithoutFarmInput {
   create: [ProductCreateWithoutFarmInput!]
   connect: [ProductWhereUniqueInput!]
+  set: [ProductWhereUniqueInput!]
   disconnect: [ProductWhereUniqueInput!]
   delete: [ProductWhereUniqueInput!]
   update: [ProductUpdateWithWhereUniqueWithoutFarmInput!]
+  updateMany: [ProductUpdateManyWithWhereNestedInput!]
+  deleteMany: [ProductScalarWhereInput!]
   upsert: [ProductUpsertWithWhereUniqueWithoutFarmInput!]
+}
+
+input ProductUpdateManyWithWhereNestedInput {
+  where: ProductScalarWhereInput!
+  data: ProductUpdateManyDataInput!
 }
 
 input ProductUpdateWithoutFarmDataInput {
@@ -3562,7 +4228,7 @@ input SalesCatogoriesUpdateDataInput {
   products: Boolean
 }
 
-input SalesCatogoriesUpdateInput {
+input SalesCatogoriesUpdateManyMutationInput {
   crops: Boolean
   livestock: Boolean
   products: Boolean
@@ -3820,25 +4486,11 @@ input UserUpdateInput {
   farm: FarmUpdateOneWithoutFarmerInput
 }
 
-input UserUpdateOneRequiredWithoutAddressInput {
-  create: UserCreateWithoutAddressInput
-  connect: UserWhereUniqueInput
-  update: UserUpdateWithoutAddressDataInput
-  upsert: UserUpsertWithoutAddressInput
-}
-
-input UserUpdateOneRequiredWithoutFarmingActivitiesInput {
-  create: UserCreateWithoutFarmingActivitiesInput
-  connect: UserWhereUniqueInput
-  update: UserUpdateWithoutFarmingActivitiesDataInput
-  upsert: UserUpsertWithoutFarmingActivitiesInput
-}
-
-input UserUpdateOneRequiredWithoutPersonalDetailsInput {
-  create: UserCreateWithoutPersonalDetailsInput
-  connect: UserWhereUniqueInput
-  update: UserUpdateWithoutPersonalDetailsDataInput
-  upsert: UserUpsertWithoutPersonalDetailsInput
+input UserUpdateManyMutationInput {
+  email: String
+  password: String
+  name: String
+  role: Role
 }
 
 input UserUpdateOneRequiredWithoutPostsInput {
@@ -3857,17 +4509,6 @@ input UserUpdateOneWithoutFarmInput {
   upsert: UserUpsertWithoutFarmInput
 }
 
-input UserUpdateWithoutAddressDataInput {
-  email: String
-  password: String
-  name: String
-  role: Role
-  posts: PostUpdateManyWithoutAuthorInput
-  personalDetails: PersonalDetailsUpdateOneWithoutPersonInput
-  farmingActivities: FarmingActivitiesUpdateOneWithoutFarmerInput
-  farm: FarmUpdateOneWithoutFarmerInput
-}
-
 input UserUpdateWithoutFarmDataInput {
   email: String
   password: String
@@ -3877,28 +4518,6 @@ input UserUpdateWithoutFarmDataInput {
   personalDetails: PersonalDetailsUpdateOneWithoutPersonInput
   address: AddressUpdateOneWithoutResidentInput
   farmingActivities: FarmingActivitiesUpdateOneWithoutFarmerInput
-}
-
-input UserUpdateWithoutFarmingActivitiesDataInput {
-  email: String
-  password: String
-  name: String
-  role: Role
-  posts: PostUpdateManyWithoutAuthorInput
-  personalDetails: PersonalDetailsUpdateOneWithoutPersonInput
-  address: AddressUpdateOneWithoutResidentInput
-  farm: FarmUpdateOneWithoutFarmerInput
-}
-
-input UserUpdateWithoutPersonalDetailsDataInput {
-  email: String
-  password: String
-  name: String
-  role: Role
-  posts: PostUpdateManyWithoutAuthorInput
-  address: AddressUpdateOneWithoutResidentInput
-  farmingActivities: FarmingActivitiesUpdateOneWithoutFarmerInput
-  farm: FarmUpdateOneWithoutFarmerInput
 }
 
 input UserUpdateWithoutPostsDataInput {
@@ -3912,24 +4531,9 @@ input UserUpdateWithoutPostsDataInput {
   farm: FarmUpdateOneWithoutFarmerInput
 }
 
-input UserUpsertWithoutAddressInput {
-  update: UserUpdateWithoutAddressDataInput!
-  create: UserCreateWithoutAddressInput!
-}
-
-input UserUpsertWithoutFarmingActivitiesInput {
-  update: UserUpdateWithoutFarmingActivitiesDataInput!
-  create: UserCreateWithoutFarmingActivitiesInput!
-}
-
 input UserUpsertWithoutFarmInput {
   update: UserUpdateWithoutFarmDataInput!
   create: UserCreateWithoutFarmInput!
-}
-
-input UserUpsertWithoutPersonalDetailsInput {
-  update: UserUpdateWithoutPersonalDetailsDataInput!
-  create: UserCreateWithoutPersonalDetailsInput!
 }
 
 input UserUpsertWithoutPostsInput {
