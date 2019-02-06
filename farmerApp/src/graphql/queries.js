@@ -9,3 +9,23 @@ export const ME_QUERY = gql `
         }
     }
 `
+
+export const MY_FARM = gql `
+    query myFarm {
+        myFarm {
+            farm {
+                farmersAssociations
+                id
+                name
+                totalLand
+                cultivatedLand
+                shareLocation
+                gpsPoints {
+                    lat
+                    lng
+                }
+            }
+        }
+    }
+
+`

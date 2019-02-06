@@ -19,6 +19,7 @@ type Query {
   tenUsers: [User!]!
   produceList: [_Produce!]!
   currentCrops(farmId: ID!, today: DateTime): [Crop]!
+  myFarm: User
 }
 
 type Mutation {

@@ -49,6 +49,9 @@
 import FarmMap from "@/components/profile/FarmMap";
 
 export default {
+  created() {
+    this.fetchFarm()
+  },
   data() {
     return {
       alternatively: true,
@@ -56,7 +59,6 @@ export default {
         name: null,
         totalLand: "",
         cultivatedLand: "",
-        cultivationApproach: "",
         gpsPoints: {
           lat: null,
           lng: null
@@ -106,6 +108,10 @@ export default {
     async saveFarmProfile() {
       await this.$store.dispatch("saveFarmProfile", this.farmProfile);
                   this.$router.push('/')
+    },
+    async fetchFarm() {
+      const response = await this.$store.dispatch('fetchMyFarm')
+      this.farmProfile = {...response}
     }
   },
   components: {

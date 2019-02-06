@@ -2,14 +2,17 @@
   <v-container grid-list-lg fluid>
     <v-layout justify-center row wrap>
       <v-flex xs12 sm10 md8 lg6 xl4  >
-
+        <v-tooltip bottom>
+          <v-btn slot="activator" color="success" @click="testFunc">Dilly-Dee's function tester - DO NOT PRESS</v-btn>
+          <span>HEY, DON'T BE A HERO!!</span> 
+        </v-tooltip>
         <v-btn to="/profile" 
           block color="primary" dark>My Profile</v-btn>
         <v-btn to="/farm-profile" 
           block color="primary" dark>The Farm</v-btn>
-        <v-btn to="/crop-capture" v-if="farmProfile !== null && farmingActivities.selling.crops === true"
+        <v-btn to="/crop-capture" v-if="farmProfile !== null && farmingActivities.selling.crops == true"
           block color="primary" dark>Capture A Crop</v-btn>
-        <v-btn to="/products" v-if="farmProfile !== null && farmingActivities.selling.products === true"
+        <v-btn to="/products" v-if="farmProfile !== null && farmingActivities.selling.products == true"
           block color="primary" dark>Our Products</v-btn>
         <!-- <v-btn block color="primary" dark>Our Livestock</v-btn> -->
         <br>
@@ -28,6 +31,11 @@ export default {
     logout() {
       localStorage.removeItem("USER_TOKEN");
       this.$router.replace("/login");
+    },
+    async testFunc() {
+      alert("You fucking PRESSED It didn't you!!!")
+      const message = await this.$store.dispatch('fetchMyFarm')
+			console.log('TCL: testFunc -> message', message)
     }
   },
   computed: {

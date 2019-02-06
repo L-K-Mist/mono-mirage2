@@ -37,6 +37,21 @@
           v-if="product.imageSrc"
           :src="product.imageSrc" />
         <v-btn @click="submit"  color="success">Upload Your Product</v-btn>
+
+              <!-- <v-card>
+                <v-card-title class="display-1" primary-title>
+                  Scheduled Crops
+                </v-card-title>
+                <v-card-text>
+                  <v-flex xs12 v-for="(crop, index) in currentCrops" :key="index">
+                    Name: {{crop.name}}
+                    Category: {{crop.category}}
+                    Description: {{crop.description}}
+                    Harvest Begins: {{crop.harvestWindow.from}}
+                    Harvest Ends: {{crop.harvestWindow.to}}
+                  </v-flex>
+                </v-card-text>
+              </v-card> -->
     </v-container>
 </template>
 
@@ -77,6 +92,7 @@ export default {
     },
     submit() {
       this.$store.dispatch("saveProduct", this.product);
+      this.$router.push('/')
     }
   },
   components: { "v-cloudinary-upload": vuetifyCloudinaryUpload }

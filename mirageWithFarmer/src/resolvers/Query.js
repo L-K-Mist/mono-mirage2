@@ -86,6 +86,15 @@ const Query = {
     )
   },
 
+  async myFarm(parent, arg, ctx, info) {
+    const id = getUserId(ctx)
+    return ctx.db.query.user({
+      where: {
+        id
+      }
+    }, '{ farm {farmersAssociations id name totalLand cultivatedLand shareLocation gpsPoints { lat lng }}}')
+  },
+
   me(parent, args, ctx, info) {
     const id = getUserId(ctx)
     return ctx.db.query.user({

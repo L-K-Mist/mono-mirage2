@@ -1,10 +1,11 @@
 import apollo from '@/apollo'
 import {
-    ME_QUERY,
+    ME_QUERY, MY_FARM
 } from '@/graphql/queries'
 import {
     FARMINGACTIVITIES_MUTATION
 } from '@/graphql/mutations'
+
 
 import gql from 'graphql-tag'
 import upsertToPouch from '@/helpers/upsertToPouch'
@@ -198,6 +199,15 @@ const actions = {
             query: ME_QUERY
         })
         console.log('TCL: response', response);
+    },
+
+    async fetchMyFarm({
+        state
+    }) {
+        const response = await apollo.query({
+            query: MY_FARM
+        })
+        return response.data.myFarm.farm
     }
 }
 

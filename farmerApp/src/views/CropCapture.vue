@@ -71,6 +71,8 @@
             </v-flex>  
                 <v-btn @click="saveCrop" color="success">Save</v-btn>
             <template v-if="currentCrops.length > 0">
+                <br>
+                <br>
               <v-card>
                 <v-card-title class="display-1" primary-title>
                   Scheduled Crops
