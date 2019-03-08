@@ -38,20 +38,20 @@
           :src="product.imageSrc" />
         <v-btn @click="submit"  color="success">Upload Your Product</v-btn>
 
-              <!-- <v-card>
+              <v-card v-if="products">
                 <v-card-title class="display-1" primary-title>
-                  Scheduled Crops
+                  Captured Products
                 </v-card-title>
                 <v-card-text>
-                  <v-flex xs12 v-for="(crop, index) in currentCrops" :key="index">
-                    Name: {{crop.name}}
-                    Category: {{crop.category}}
-                    Description: {{crop.description}}
-                    Harvest Begins: {{crop.harvestWindow.from}}
-                    Harvest Ends: {{crop.harvestWindow.to}}
+                  <v-flex xs12 v-for="(product, index) in products" :key="index">
+                    Name: {{product.name}}
+                    Description: {{product.description}}
+                    Units: {{product.unit}}
+                    Price: {{product.price}}
+
                   </v-flex>
                 </v-card-text>
-              </v-card> -->
+              </v-card>
     </v-container>
 </template>
 
@@ -59,6 +59,9 @@
 import vuetifyCloudinaryUpload from "vuetify-cloudinary-upload";
 import srcForCloudinary from "@/helpers/srcForCloudinary.js";
 export default {
+  created() {
+    this.fetchProducts()
+  },
   data() {
     return {
       product: {
@@ -69,6 +72,7 @@ export default {
         price: null,
         imageSrc: null
       },
+      products: null,
       cloudinary: {
         name: "dylan-van-den-bosch",
         preset: "gi9lyrb6"
@@ -93,6 +97,11 @@ export default {
     submit() {
       this.$store.dispatch("saveProduct", this.product);
       this.$router.push('/')
+    },
+    async fetchProducts() {
+      const message = await this.$store.dispatch('fetchProducts')
+      console.log('TCL: testFunc -> message', message)
+      this.products = message
     }
   },
   components: { "v-cloudinary-upload": vuetifyCloudinaryUpload }

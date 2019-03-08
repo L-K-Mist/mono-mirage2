@@ -5,7 +5,9 @@ import {
 import apollo from '@/apollo'
 import gql from 'graphql-tag'
 import upsertToPouch from '@/helpers/upsertToPouch'
-
+import {
+    MY_FARM
+} from '@/graphql/queries'
 
 const state = {
     farmLocation: null,
@@ -58,7 +60,6 @@ const actions = {
         console.log('TCL: ---------------------------------------------');
         console.log('TCL: state.municipalData', state.municipalData);
         console.log('TCL: ---------------------------------------------');
-
     },
     async saveFarmProfile({
         state,
@@ -110,7 +111,16 @@ const actions = {
         delete farmData.__typename
         console.log('TCL: farmData', farmData);
         await upsertToPouch("farm", farmData)
+    },
+    async fetchMyFarm({
+        state
+    }) {
+        const response = await apollo.query({
+            query: MY_FARM
+        })
+        return response.data.myFarm.farm
     }
+    
 }
 
 export default {

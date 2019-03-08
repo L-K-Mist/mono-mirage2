@@ -34,7 +34,7 @@ export default {
     },
     async testFunc() {
       alert("You fucking PRESSED It didn't you!!!")
-      const message = await this.$store.dispatch('fetchMyFarm')
+      const message = await this.$store.dispatch('fetchProducts')
 			console.log('TCL: testFunc -> message', message)
     }
   },

@@ -1,6 +1,6 @@
 import apollo from '@/apollo'
 import {
-    ME_QUERY, MY_FARM
+    ME_QUERY
 } from '@/graphql/queries'
 import {
     FARMINGACTIVITIES_MUTATION
@@ -201,14 +201,6 @@ const actions = {
         console.log('TCL: response', response);
     },
 
-    async fetchMyFarm({
-        state
-    }) {
-        const response = await apollo.query({
-            query: MY_FARM
-        })
-        return response.data.myFarm.farm
-    }
 }
 
 export default {

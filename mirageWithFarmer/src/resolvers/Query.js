@@ -26,6 +26,18 @@ const Query = {
       orderBy: "createdAt_DESC"
     }, info)
   },
+    async currentProducts(parent, {
+      farmId
+    }, ctx, info) {
+      return ctx.db.query.products({
+        where: {
+          farm: {
+            id: farmId
+          }
+        }
+      }, info)
+    },
+
 
   feed(parent, args, ctx, info) {
     return ctx.db.query.posts({

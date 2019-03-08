@@ -2,12 +2,16 @@ import apollo from '@/apollo'
 import gql from 'graphql-tag'
 
 const state = {
-    product: null
+    product: null,
+    products: null
 }
 
 const getters = {
     product(state) {
         return state.product
+    },
+    products(state) {
+        return state.products
     }
 }
 
@@ -62,6 +66,38 @@ const actions = {
             }
         })
         console.log('TCL: response', response);
+    },
+    async fetchProducts({
+        rootState,
+        state
+    }) {
+        var response = await apollo.query({
+            query: gql `
+                query currentProducts($farmId: ID!) {
+                    currentProducts(
+                        farmId: $farmId
+                    ) {
+                        id
+                        name
+                        description
+                        unit
+                        stockLevel
+                        price
+                        imageSrc
+                        imageName
+                    }
+                }
+            `,
+            variables: {
+                farmId: rootState.AppState.docs.farm.id,
+            }
+        })
+        var products = response.data.currentProducts
+        console.log('TCL: crops', products);
+
+        state.products = products
+        return products
+
     }
 }
 
