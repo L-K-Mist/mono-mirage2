@@ -4,7 +4,9 @@ projects:
     extensions:
       endpoints:
         default: http://localhost:4000
-        live: https://mirage-advanced-ykycbvfian.now.sh
+        # live: https://mirage-advanced-ykycbvfian.now.sh
+        #live: http://41.193.136.77:4466/
+        live: http://102.133.167.29:4466
   database:
     schemaPath: src/generated/prisma.graphql
     extensions:

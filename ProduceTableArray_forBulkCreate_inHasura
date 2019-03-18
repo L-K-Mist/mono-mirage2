@@ -1,0 +1,282 @@
+{
+  "data": {
+    "produceList": [
+      {
+        name: "Beans (Dry)",
+        type: "VEGETABLE",
+        spacing: 200,
+        plants_per_meter: 12
+      },
+      {
+        name: "Beans (Green)",
+        type: "VEGETABLE",
+        spacing: 200,
+        plants_per_meter: 12
+      },
+      {
+        name: "Beans (Edamame)",
+        type: "VEGETABLE",
+        spacing: 700,
+        plants_per_meter: 16
+      },
+      {
+        name: "Beetroot",
+        type: "VEGETABLE",
+        spacing: 150,
+        plants_per_meter: 20
+      },
+      {
+        name: "Broccoli",
+        type: "VEGETABLE",
+        spacing: 400,
+        plants_per_meter: 3
+      },
+      {
+        name: "Brinjal",
+        type: "VEGETABLE",
+        spacing: 400,
+        plants_per_meter: 3.25
+      },
+      {
+        name: "Butternut",
+        type: "VEGETABLE",
+        spacing: 400,
+        plants_per_meter: 1.5
+      },
+      {
+        name: "Cabbage",
+        type: "VEGETABLE",
+        spacing: 400,
+        plants_per_meter: 2.5
+      },
+      {
+        name: "Cabbage Red",
+        type: "VEGETABLE",
+        spacing: 330,
+        plants_per_meter: 5
+      },
+      {
+        name: "Cauliflower",
+        type: "VEGETABLE",
+        spacing: 400,
+        plants_per_meter: 3
+      },
+      {
+        name: "Capsicum Green",
+        type: "VEGETABLE",
+        spacing: 300,
+        plants_per_meter: 5
+      },
+      {
+        name: "Capsicum hot",
+        type: "VEGETABLE",
+        spacing: 250,
+        plants_per_meter: 5
+      },
+      {
+        name: "Carrot",
+        type: "VEGETABLE",
+        spacing: 80,
+        plants_per_meter: 60
+      },
+      {
+        name: "Chard",
+        type: "VEGETABLE",
+        spacing: 200,
+        plants_per_meter: 12
+      },
+      {
+        name: "Cucumber",
+        type: "VEGETABLE",
+        spacing: 250,
+        plants_per_meter: 2.5
+      },
+      {
+        name: "Celery",
+        type: "VEGETABLE",
+        spacing: 150,
+        plants_per_meter: 10
+      },
+      {
+        name: "Leek",
+        type: "VEGETABLE",
+        spacing: 120,
+        plants_per_meter: 25
+      },
+      {
+        name: "Lettuce (head)",
+        type: "VEGETABLE",
+        spacing: 250,
+        plants_per_meter: 8
+      },
+      {
+        name: "Lettuce (type 2) Loose",
+        type: "VEGETABLE",
+        spacing: 200,
+        plants_per_meter: 12
+      },
+      {
+        name: "Okra",
+        type: "VEGETABLE",
+        spacing: 350,
+        plants_per_meter: 4
+      },
+      {
+        name: "Onion",
+        type: "VEGETABLE",
+        spacing: 150,
+        plants_per_meter: 25
+      },
+      {
+        name: "Onion Red",
+        type: "VEGETABLE",
+        spacing: 150,
+        plants_per_meter: 25
+      },
+      {
+        name: "Pak Choi",
+        type: "VEGETABLE",
+        spacing: 250,
+        plants_per_meter: 12
+      },
+      {
+        name: "Parsnip",
+        type: "VEGETABLE",
+        spacing: 80,
+        plants_per_meter: 15
+      },
+      {
+        name: "Peas",
+        type: "VEGETABLE",
+        spacing: 100,
+        plants_per_meter: 12
+      },
+      {
+        name: "Potato",
+        type: "VEGETABLE",
+        spacing: 250,
+        plants_per_meter: 3.5
+      },
+      {
+        name: "Spinach (Baby)",
+        type: "VEGETABLE",
+        spacing: 200,
+        plants_per_meter: 20
+      },
+      {
+        name: "Spring Onion",
+        type: "VEGETABLE",
+        spacing: 70,
+        plants_per_meter: 40
+      },
+      {
+        name: "Sweet Corn",
+        type: "VEGETABLE",
+        spacing: 330,
+        plants_per_meter: 4
+      },
+      {
+        name: "Sweet Potato/Madumbe",
+        type: "VEGETABLE",
+        spacing: 330,
+        plants_per_meter: 3.5
+      },
+      {
+        name: "Garlic",
+        type: "VEGETABLE",
+        spacing: 100,
+        plants_per_meter: 20
+      },
+      {
+        name: "Tomato",
+        type: "VEGETABLE",
+        spacing: 450,
+        plants_per_meter: 3.5
+      },
+      {
+        name: "Turnip",
+        type: "VEGETABLE",
+        spacing: 100,
+        plants_per_meter: 20
+      },
+      {
+        name: "Zuccini",
+        type: "VEGETABLE",
+        spacing: 600,
+        plants_per_meter: 1
+      },
+      {
+        name: "Parsley",
+        type: "HERB",
+        spacing: 120,
+        plants_per_meter: 64
+      },
+      {
+        name: "Chives",
+        type: "HERB",
+        spacing: 50,
+        plants_per_meter: 200
+      },
+      {
+        name: "Corriander",
+        type: "HERB",
+        spacing: 120,
+        plants_per_meter: 50
+      },
+      {
+        name: "Fennel",
+        type: "HERB",
+        spacing: 120,
+        plants_per_meter: 12
+      },
+      {
+        name: "Watercress",
+        type: "HERB",
+        spacing: 120,
+        plants_per_meter: 64
+      },
+      {
+        name: "Banana",
+        type: "FRUIT",
+        spacing: 4000,
+        plants_per_meter: 0.25
+      },
+      {
+        name: "Ginger",
+        type: "FRUIT",
+        spacing: 200,
+        plants_per_meter: 25
+      },
+      {
+        name: "Gooseberry",
+        type: "FRUIT",
+        spacing: 750,
+        plants_per_meter: 1
+      },
+      {
+        name: "Granadilla",
+        type: "FRUIT",
+        spacing: 4000,
+        plants_per_meter: 0.25
+      },
+      {
+        name: "Papaya",
+        type: "FRUIT",
+        spacing: 2000,
+        plants_per_meter: 0.25
+      },
+      {
+        name: "Strawberries",
+        type: "FRUIT",
+        spacing: 250,
+        plants_per_meter: 16
+      },
+      {
+        name: "Watermelon",
+        type: "FRUIT",
+        spacing: 0,
+        plants_per_meter: 2
+      }
+    ]
+  }
+}
