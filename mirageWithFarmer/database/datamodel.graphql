@@ -1,27 +1,28 @@
 type Post {
-  id: ID! @unique
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  isPublished: Boolean! @default(value: "false")
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  isPublished: Boolean! @default(value: false)
   title: String!
   text: String!
   author: User!
 }
 
 type User {
-  id: ID! @unique
+  id: ID! @id
   email: String! @unique
   password: String!
   name: String!
   posts: [Post!]!
-  personalDetails: PersonalDetails
-  address: Address
-  farmingActivities: FarmingActivities
-  farm: Farm
-  role: Role @default(value: "FARMER")
+  personalDetails: PersonalDetails @relation(link: INLINE)
+  address: Address @relation(link: INLINE)
+  farmingActivities: FarmingActivities @relation(link: INLINE)
+  farm: Farm @relation(link: INLINE)
+  role: Role @default(value: FARMER)
 }
 
 type PersonalDetails {
+  id: ID! @id
   lastName: String
   cell: String
   landLine: String
@@ -30,6 +31,7 @@ type PersonalDetails {
 }
 
 type Address {
+  id: ID! @id
   line1: String
   line2: String
   line3: String
@@ -40,6 +42,7 @@ type Address {
 }
 
 type FarmingActivities {
+  id: ID! @id
   category: String!
   shortDescription: String
   cultivationApproach: String
@@ -48,13 +51,14 @@ type FarmingActivities {
 }
 
 type SalesCatogories {
+  id: ID! @id
   crops: Boolean
   livestock: Boolean
   products: Boolean
 }
 
 type Farm {
-  id: ID! @unique
+  id: ID! @id
   name: String
   totalLand: Int!
   cultivatedLand: Int!
@@ -67,7 +71,7 @@ type Farm {
 }
 
 type Crop {
-  id: ID! @unique
+  id: ID! @id
   category: CropCategory!
   name: String!
   description: String!
@@ -76,11 +80,13 @@ type Crop {
 }
 
 type _ProduceTable {
+  id: ID! @id
   name: String
   produce: [_Produce!]! @relation(name: "SeedData")
 }
 
 type _Produce {
+  id: ID! @id
   name: String! @unique
   type: CropCategory!
   # spacing in mm
@@ -90,12 +96,13 @@ type _Produce {
 }
 
 type Location {
+  id: ID! @id
   lat: Float!
   lng: Float!
 }
 
 type Product {
-  id: ID! @unique
+  id: ID! @id
   name: String!
   description: String
   unit: String
@@ -108,6 +115,7 @@ type Product {
 
 # eg. datetime: "2015-11-22"
 type HarvestWindow {
+  id: ID! @id
   from: DateTime!
   to: DateTime!
 }
